@@ -1,6 +1,9 @@
 module.exports = function intersect(a, b) {
   const removes = [];
   const commons = [];
+  
+  a = a.slice();
+  b = b.slice();
 
   for (let i = 0; i < a.length; i++) {
     const value = a[i];
