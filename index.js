@@ -2,9 +2,9 @@ module.exports = function intersect(a, b) {
   const removes = [];
   const commons = [];
   
-  a = a.slice();
-  b = b.slice();
-
+  a = a.slice().sort();
+  b = b.slice().sort();
+  
   for (let i = 0; i < a.length; i++) {
     const value = a[i];
     const index = b.indexOf(value);
@@ -12,8 +12,8 @@ module.exports = function intersect(a, b) {
       removes.push(value);
     } else {
       commons.push(value);
+      b.splice(index, 1);
     }
-    b.splice(index, 1);
   }
   return {
     removes, commons,
